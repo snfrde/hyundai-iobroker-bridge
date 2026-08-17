@@ -1,0 +1,16 @@
+# Secrets - never commit
+hyundai-bridge-service/.env
+
+# Python
+hyundai-bridge-service/.venv/
+hyundai-bridge-service/__pycache__/
+**/__pycache__/
+*.pyc
+
+# Node / ioBroker adapter
+iobroker.hyundai-bridge/node_modules/
+iobroker.hyundai-bridge/*.tgz
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db

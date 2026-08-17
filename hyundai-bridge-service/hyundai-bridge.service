@@ -1,0 +1,17 @@
+[Unit]
+Description=Hyundai/Kia Bridge Service (fuer ioBroker)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=iobroker
+Group=iobroker
+WorkingDirectory=/opt/hyundai-bridge
+EnvironmentFile=/opt/hyundai-bridge/.env
+ExecStart=/opt/hyundai-bridge/.venv/bin/uvicorn main:app --host 127.0.0.1 --port 8100
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target

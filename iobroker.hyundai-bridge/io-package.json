@@ -1,0 +1,107 @@
+{
+    "common": {
+        "name": "hyundai-bridge",
+        "titleLang": {
+            "en": "Hyundai/Kia Bridge",
+            "de": "Hyundai/Kia Brücke"
+        },
+        "desc": {
+            "en": "Polls a local hyundai_kia_connect_api companion service and exposes vehicle status as ioBroker states.",
+            "de": "Fragt einen lokalen hyundai_kia_connect_api-Begleitdienst ab und stellt Fahrzeugdaten als ioBroker-States bereit."
+        },
+        "authors": [
+            "stefan.fischer@gft.com"
+        ],
+        "keywords": [
+            "hyundai",
+            "kia",
+            "bluelink",
+            "e-auto",
+            "kona"
+        ],
+        "license": "Apache-2.0",
+        "platform": "Javascript/Node.js",
+        "icon": "hyundai-bridge.png",
+        "enabled": true,
+        "type": "vehicle",
+        "mode": "daemon",
+        "adminUI": {
+            "config": "json"
+        },
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "poll",
+        "dependencies": [
+            {
+                "js-controller": ">=5.0.0"
+            }
+        ],
+        "loglevel": "info",
+        "main": "main.js",
+        "version": "0.2.0",
+        "news": {
+            "0.1.0": {
+                "en": "Initial release.",
+                "de": "Erstveröffentlichung."
+            },
+            "0.2.0": {
+                "en": "Add many more vehicle status fields (doors, tire pressure, charge limits, schedules, energy stats).",
+                "de": "Viele weitere Fahrzeugdaten ergänzt (Türen, Reifendruck, Lade-Limits, Zeitpläne, Energiestatistik)."
+            }
+        }
+    },
+    "native": {
+        "serviceUrl": "http://127.0.0.1:8100",
+        "pollIntervalMinutes": 10
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Begleitdienst erreichbar und eingeloggt",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.lastError",
+            "type": "state",
+            "common": {
+                "role": "text",
+                "name": "Letzter Fehler",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "control.forceRefresh",
+            "type": "state",
+            "common": {
+                "role": "button",
+                "name": "Echte Fahrzeugabfrage erzwingen (weckt das Auto)",
+                "type": "boolean",
+                "read": false,
+                "write": true,
+                "def": false
+            },
+            "native": {}
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+    "name": "iobroker.hyundai-bridge",
+    "version": "0.2.0",
+    "description": "Minimal ioBroker adapter that bridges to a local hyundai_kia_connect_api companion service.",
+    "author": {
+        "name": "stefan.fischer@gft.com"
+    },
+    "license": "Apache-2.0",
+    "keywords": [
+        "ioBroker",
+        "hyundai",
+        "kia",
+        "genesis",
+        "ev",
+        "kona"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/snfrde/hyundai-iobroker-bridge.git",
+        "directory": "iobroker.hyundai-bridge"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "dependencies": {
+        "@iobroker/adapter-core": "^3.4.3"
+    },
+    "main": "main.js"
+}
